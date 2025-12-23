@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private Transform target;
     [SerializeField] private int enemyCount = 10;
 
     private Vector3 _offset = new Vector3(0.5f, 0.5f, 0);
@@ -20,7 +21,8 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < enemyCount; i++)
         {
             int index = UnityEngine.Random.Range(0, _possibleTiles.Count);
-            Instantiate(enemyPrefab, _possibleTiles[index],  Quaternion.identity, transform);
+            GameObject clone = Instantiate(enemyPrefab, _possibleTiles[index],  Quaternion.identity, transform);
+            clone.GetComponent<EnemyFSM>().Setup(target);
         }
     }
 
