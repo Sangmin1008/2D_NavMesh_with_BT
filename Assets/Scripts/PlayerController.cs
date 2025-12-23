@@ -1,21 +1,36 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-	private	MovementRigidbody2D	movement2D;
+	private	MovementRigidbody2D	_movement2D;
+	private PlayerAction _input;
+	
+	public Vector2 MoveInput { get; private set; }
 
 	private void Awake()
 	{
-		movement2D = GetComponent<MovementRigidbody2D>();
+		_movement2D = GetComponent<MovementRigidbody2D>();
+		_input = new PlayerAction();
+	}
+
+	private void OnEnable()
+	{
+		_input.Enable();
+		
+		_input.Player.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
+		_input.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
+	}
+
+	private void OnDisable()
+	{
+		_input.Disable();
 	}
 
 	private void Update()
 	{
-		float x = Input.GetAxisRaw("Horizontal");
-		float y = Input.GetAxisRaw("Vertical");
-
-		// 플레이어 이동
-		movement2D.MoveTo(new Vector3(x, y, 0));
+		_movement2D.MoveTo(MoveInput);
 	}
 }
 
