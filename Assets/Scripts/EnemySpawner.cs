@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -10,6 +11,15 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private int enemyCount = 10;
 
+    [Serializable]
+    private struct WayPointData
+    {
+        public GameObject[] wayPoints;
+    }
+
+    [SerializeField] private WayPointData[] wayPointData;
+    
+
     private Vector3 _offset = new Vector3(0.5f, 0.5f, 0);
     private List<Vector3> _possibleTiles = new List<Vector3>();
 
@@ -21,8 +31,9 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < enemyCount; i++)
         {
             int index = UnityEngine.Random.Range(0, _possibleTiles.Count);
+            int wayIndex = UnityEngine.Random.Range(0, wayPointData.Length);
             GameObject clone = Instantiate(enemyPrefab, _possibleTiles[index],  Quaternion.identity, transform);
-            clone.GetComponent<EnemyFSM>().Setup(target);
+            clone.GetComponent<EnemyFSM>().Setup(target, wayPointData[wayIndex].wayPoints);
         }
     }
 
