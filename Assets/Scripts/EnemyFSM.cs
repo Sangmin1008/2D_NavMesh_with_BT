@@ -25,5 +25,6 @@ public class EnemyFSM : MonoBehaviour
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
         _behaviorAgent.SetVariableValue("PatrolPoints", wayPoints.ToList());
+        _behaviorAgent.SetVariableValue("Target", target.gameObject);
     }
 }

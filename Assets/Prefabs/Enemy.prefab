@@ -292,6 +292,10 @@ MonoBehaviour:
   m_BlackboardVariableOverridesList:
   - rid: 4510300602835403001
   - rid: 4510300602835403004
+  - rid: 4510300650243097549
+  - rid: 4510300650243097550
+  - rid: 4510300650243097551
+  - rid: 4510300650243097552
   m_OriginalGraph: {fileID: -3090130110222535930, guid: 41635585c789d6d4f891259df87911a2, type: 2}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -314,6 +318,38 @@ MonoBehaviour:
           m_Value1: 10143506068930426375
         Name: PatrolPoints
         m_Value: []
+    - rid: 4510300650243097549
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 5039215980896101633
+          m_Value1: 17656222401749860741
+        Name: AttackDistance
+        m_Value: 4
+    - rid: 4510300650243097550
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 5065525074458531514
+          m_Value1: 15531912605355547421
+        Name: ChaseDistance
+        m_Value: 6
+    - rid: 4510300650243097551
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 16962117556682714711
+          m_Value1: 8126608581868424236
+        Name: FallOutDistance
+        m_Value: 10
+    - rid: 4510300650243097552
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1643592846311675335
+          m_Value1: 7238627297884235191
+        Name: Target
+        m_Value: {fileID: 0}
 --- !u!1 &5969705207161803235
 GameObject:
   m_ObjectHideFlags: 0
