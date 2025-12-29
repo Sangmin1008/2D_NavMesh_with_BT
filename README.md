@@ -57,10 +57,3 @@
 
   * YouTube – *[유니티6] Behavior Tree를 이용한 AI 구현*
   * [https://www.youtube.com/watch?v=ZbWbxlCQ6cA](https://www.youtube.com/watch?v=ZbWbxlCQ6cA)
-
----
-
-## ✍️ Author
-
-* **Sangmin Park**
-* GitHub: [https://github.com/Sangmin1008](https://github.com/Sangmin1008)
